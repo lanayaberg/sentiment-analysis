@@ -19,8 +19,8 @@ def clean_text(text):
     return ' '.join(words)
 
 st.set_page_config(
-    page_title="CineAI — Movie Sentiment",
-    page_icon="🎬",
+    page_title="RemAI — Movie Sentiment",
+    page_icon="💙",
     layout="centered"
 )
 
@@ -29,24 +29,23 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
 
     .stApp {
-        background: #0a0a0f;
+        background: #0a0a15;
     }
 
-    /* Звёздное небо */
     .stApp::before {
         content: '';
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
         background-image:
-            radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
-            radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
-            radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
-            radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
-            radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
-            radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.2) 0%, transparent 100%),
-            radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.3) 0%, transparent 100%),
-            radial-gradient(2px 2px at 60% 50%, rgba(255,215,0,0.2) 0%, transparent 100%);
+            radial-gradient(1px 1px at 10% 20%, rgba(100,200,255,0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 30% 60%, rgba(100,200,255,0.2) 0%, transparent 100%),
+            radial-gradient(1px 1px at 50% 10%, rgba(150,220,255,0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 70% 80%, rgba(100,200,255,0.2) 0%, transparent 100%),
+            radial-gradient(1px 1px at 90% 40%, rgba(120,200,255,0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 20% 90%, rgba(100,200,255,0.15) 0%, transparent 100%),
+            radial-gradient(1px 1px at 80% 15%, rgba(100,200,255,0.2) 0%, transparent 100%),
+            radial-gradient(2px 2px at 60% 50%, rgba(100,200,255,0.15) 0%, transparent 100%);
         pointer-events: none;
         z-index: 0;
     }
@@ -55,21 +54,21 @@ st.markdown("""
     .film-strip {
         background: repeating-linear-gradient(
             90deg,
-            #1a1a1a 0px, #1a1a1a 20px,
-            #f5c518 20px, #f5c518 22px,
-            #1a1a1a 22px, #1a1a1a 42px
+            #0f1419 0px, #0f1419 20px,
+            #64c8ff 20px, #64c8ff 22px,
+            #0f1419 22px, #0f1419 42px
         );
         height: 8px;
         width: 100%;
         margin-bottom: 2rem;
-        opacity: 0.6;
+        opacity: 0.8;
     }
 
     .main-logo {
         text-align: center;
         font-family: 'Playfair Display', serif;
         font-size: 1rem;
-        color: #f5c518;
+        color: #64c8ff;
         letter-spacing: 8px;
         text-transform: uppercase;
         margin-bottom: 0.5rem;
@@ -82,12 +81,12 @@ st.markdown("""
         font-weight: 700;
         color: white;
         margin-bottom: 0.3rem;
-        text-shadow: 0 0 40px rgba(245, 197, 24, 0.3);
+        text-shadow: 0 0 40px rgba(100, 200, 255, 0.4);
         letter-spacing: -1px;
     }
 
     .main-title span {
-        color: #f5c518;
+        color: #64c8ff;
     }
 
     .subtitle {
@@ -122,26 +121,26 @@ st.markdown("""
     }
 
     .movie-chip {
-        background: rgba(245, 197, 24, 0.08);
-        border: 1px solid rgba(245, 197, 24, 0.2);
+        background: rgba(100, 200, 255, 0.08);
+        border: 1px solid rgba(100, 200, 255, 0.2);
         border-radius: 50px;
         padding: 0.4rem 0.9rem;
         font-size: 0.8rem;
-        color: #f5c518;
+        color: #64c8ff;
         font-family: 'Inter', sans-serif;
         cursor: pointer;
         transition: all 0.2s ease;
     }
 
     .movie-chip:hover {
-        background: rgba(245, 197, 24, 0.15);
-        border-color: rgba(245, 197, 24, 0.5);
+        background: rgba(100, 200, 255, 0.15);
+        border-color: rgba(100, 200, 255, 0.5);
     }
 
     /* Поле ввода */
     .stTextArea textarea {
         background: rgba(255,255,255,0.04) !important;
-        border: 1px solid rgba(245, 197, 24, 0.2) !important;
+        border: 1px solid rgba(100, 200, 255, 0.2) !important;
         border-radius: 16px !important;
         color: #e5e7eb !important;
         font-size: 0.95rem !important;
@@ -151,8 +150,8 @@ st.markdown("""
     }
 
     .stTextArea textarea:focus {
-        border-color: rgba(245, 197, 24, 0.6) !important;
-        box-shadow: 0 0 25px rgba(245, 197, 24, 0.08) !important;
+        border-color: rgba(100, 200, 255, 0.6) !important;
+        box-shadow: 0 0 25px rgba(100, 200, 255, 0.12) !important;
     }
 
     .stTextArea label {
@@ -165,8 +164,8 @@ st.markdown("""
 
     /* Кнопка */
     .stButton button {
-        background: linear-gradient(135deg, #f5c518, #e6a800) !important;
-        color: #0a0a0f !important;
+        background: linear-gradient(135deg, #64c8ff, #3a9dd8) !important;
+        color: #0a0a15 !important;
         border: none !important;
         border-radius: 12px !important;
         font-size: 1rem !important;
@@ -181,7 +180,7 @@ st.markdown("""
 
     .stButton button:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 10px 30px rgba(245, 197, 24, 0.3) !important;
+        box-shadow: 0 10px 30px rgba(100, 200, 255, 0.4) !important;
     }
 
     /* Результат */
@@ -230,7 +229,7 @@ st.markdown("""
         margin-bottom: 1.2rem;
     }
 
-    .stars-positive { color: #f5c518; font-size: 1.5rem; letter-spacing: 4px; }
+    .stars-positive { color: #64c8ff; font-size: 1.5rem; letter-spacing: 4px; }
     .stars-negative { color: #374151; font-size: 1.5rem; letter-spacing: 4px; }
 
     .confidence-wrap {
@@ -297,7 +296,7 @@ st.markdown("""
     .stat-num {
         font-family: 'Playfair Display', serif;
         font-size: 1.5rem;
-        color: #f5c518;
+        color: #64c8ff;
     }
 
     .stat-desc {
@@ -311,7 +310,7 @@ st.markdown("""
 
     .divider {
         border: none;
-        border-top: 1px solid rgba(255,255,255,0.05);
+        border-top: 1px solid rgba(100, 200, 255, 0.1);
         margin: 2rem 0;
     }
 
@@ -326,8 +325,8 @@ st.markdown("""
 
     .imdb-badge {
         display: inline-block;
-        background: #f5c518;
-        color: #000;
+        background: #64c8ff;
+        color: #0a0a15;
         font-weight: 700;
         font-size: 0.7rem;
         padding: 0.2rem 0.5rem;
@@ -341,10 +340,24 @@ st.markdown("""
 # Кинолента
 st.markdown('<div class="film-strip"></div>', unsafe_allow_html=True)
 
+# ASCII арт Rem для красоты
+st.markdown("""
+<div style="text-align: center; margin-bottom: 1rem; opacity: 0.8;">
+<pre style="font-family: monospace; font-size: 10px; color: #64c8ff; line-height: 1.2; letter-spacing: -1px;">
+    ╔════════════════════════════╗
+    ║      ✦ Rem's Analysis ✦    ║
+    ╚════════════════════════════╝
+      ( ´▽｀)  💙 Who's Rem?
+     ／|  |\   I'm Rem.
+    / │  │ \  Let me read your heart.
+</pre>
+</div>
+""", unsafe_allow_html=True)
+
 # Заголовок
-st.markdown('<div class="main-logo">✦ &nbsp; CineAI &nbsp; ✦</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-logo">✦ &nbsp; RemAI &nbsp; ✦</div>', unsafe_allow_html=True)
 st.markdown('<div class="main-title">Movie <span>Sentiment</span></div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">AI-powered · Trained on 50,000 IMDB reviews · Instant analysis</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">AI-powered by Rem · Trained on 50,000 IMDB reviews · Instant analysis</div>', unsafe_allow_html=True)
 
 # Статистика
 st.markdown("""
