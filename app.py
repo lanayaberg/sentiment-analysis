@@ -378,7 +378,7 @@ st.markdown("""
         <div class="movie-chip">⭐ The Shawshank Redemption</div>
         <div class="movie-chip">🌀 Inception</div>
         <div class="movie-chip">🦇 The Dark Knight</div>
-        class="movie-chip">👾 Interstellar</div>
+        <div class="movie-chip">👾 Interstellar</div>
         <div class="movie-chip">🎭 Parasite</div>
         <div class="movie-chip">🔫 Pulp Fiction</div>
         <div class="movie-chip">👁 Schindler's List</div>
