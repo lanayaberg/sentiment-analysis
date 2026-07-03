@@ -4,7 +4,7 @@ NLP project that classifies movie reviews as positive or negative using machine 
 
 ## Demo
 
-[Link to live app](paste your streamlit link here)
+[Link to live app](sentiment-analysis-dw4uasquxkgtwn4dp8bcqce)
 
 ## Dataset
 
@@ -47,11 +47,11 @@ NLP project that classifies movie reviews as positive or negative using machine 
 
 ## How To Run
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
 python nlp.py        # train and save model
 streamlit run app.py # launch web app
-\`\`\`
+```
 
 ## Note
 
