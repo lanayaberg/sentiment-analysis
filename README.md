@@ -4,7 +4,7 @@ NLP project that classifies movie reviews as positive or negative using machine 
 
 ## Demo
 
-[Link to live app](https://sentiment-analysis-dw4uasquxkgtwn4dp8bcqce)
+[Link to live app](https://sentiment-analysis-dw4uasquxkgtwn4dp8bcqc.streamlit.app/)
 
 ## Dataset
 
